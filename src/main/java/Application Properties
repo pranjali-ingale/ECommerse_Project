@@ -1,0 +1,46 @@
+# ===============================
+# 1. Database Connection Settings
+# ===============================
+spring.datasource.url=jdbc:mysql://localhost:3306/commercc_db
+spring.datasource.username=root
+spring.datasource.password=pranju1110
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# ===============================
+# 2. JPA / Hibernate Properties
+# ===============================
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+# This helps format the SQL in your console so it's readable
+spring.jpa.properties.hibernate.format_sql=true
+
+# ===============================
+# 3. Server Configuration
+# ===============================
+server.port=8081
+# This allows your frontend (index.html) to talk to the backend without CORS errors
+# Note: You should also use @CrossOrigin in your Controller
+server.error.include-message=always
+
+# ===============================
+# 4. JSON & API Properties
+# ===============================
+# Prevents empty fields from showing up in your API response
+spring.jackson.default-property-inclusion=non_null
+# Makes the JSON output pretty in the browser
+spring.jackson.serialization.indent_output=true
+
+# ===============================
+# 5. File Upload Settings
+# ===============================
+# Increase these if you want to upload high-quality product images later
+spring.servlet.multipart.max-file-size=2MB
+spring.servlet.multipart.max-request-size=2MB
+
+# ===============================
+# 6. Logging
+# ===============================
+# Set this to DEBUG if you are having trouble with your database queries
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.springframework.web=INFO
