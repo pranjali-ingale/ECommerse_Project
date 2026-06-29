@@ -1,0 +1,26 @@
+package com.commerce.service;
+
+import com.commerce.entity.Order;
+import com.commerce.entity.Product;
+import com.commerce.repository.OrderRepository;
+import com.commerce.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import jakarta.transaction.Transactional;
+
+@Service
+public class OrderService {
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Transactional
+    public Order placeOrder(Order order) {
+        // Logic: Inventory Management
+        // Check stock and reduce it before saving order
+        return orderRepository.save(order);
+    }
+}
