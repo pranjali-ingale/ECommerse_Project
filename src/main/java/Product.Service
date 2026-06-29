@@ -1,0 +1,25 @@
+package com.commerce.service; // Ensure this matches your folder path
+
+import com.commerce.entity.Product; // ADD THIS: Import your Product entity
+import com.commerce.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProductService {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    // Implementation for Pagination and Sorting requirement
+    public Page<Product> getAllProducts(int page, int size) {
+        return productRepository.findAll(PageRequest.of(page, size));
+    }
+
+    // Implementation for Product Enhancement (Adding new products)
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
+}
